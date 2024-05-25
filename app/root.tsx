@@ -23,7 +23,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <ManifestLink />
         <Links />
       </head>
-      <body>
+      <body className="bg-almostWhite">
         {children}
         <ScrollRestoration />
         <Scripts />

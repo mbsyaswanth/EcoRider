@@ -10,8 +10,8 @@ export const meta: MetaFunction = () => {
 
 const homeMenu = [
   {
-    label: "Find Ride",
-    path: "/find-ride"
+    label: "Find Rides",
+    path: "/find-rides"
   },
   {
     label: "Offer Ride",
@@ -40,7 +40,7 @@ const ActionLink = ({ label, path }: { label: string; path: string }) => {
 
 export default function Index() {
   return (
-    <div className="flex flex-col bg-almostWhite h-screen pt-4">
+    <div className="flex flex-col h-screen pt-4">
       <header className="flex justify-between px-4 py-2 mb-6">
         <img src="favicon.svg" alt="logo" />
         <div className="flex items-center gap-5">
@@ -55,7 +55,7 @@ export default function Index() {
 
       <div className="px-4 py-2 mb-4">
         <h1 className="text-xl text-grey font-medium">Hi Yaswanth!</h1>
-        <h4 className="text-base text-grey">
+        <h4 className="text-base text-lgrey">
           Discover rides or start driving.
         </h4>
       </div>
