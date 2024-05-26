@@ -20,7 +20,7 @@ function RideCard() {
         </div>
       </header>
       <footer className="flex justify-between text-lgrey text-sm mt-1">
-        <p className="text-gray-600">via Ikea Circle, Midspace</p>
+        <p className="text-grey">via Ikea Circle, Midspace</p>
         <div className="flex gap-2">
           <img src="/clock.svg" alt="clock" />
           7:45am

@@ -35,6 +35,7 @@ export default function OfferRide() {
             />
             <Input id="cost" name="cost" label="Cost" containerClass="flex-1" />
           </div>
+          <Input id="note" name="note" label="Note to riders" />
           <Input id="upi_id" name="upi_id" label="UPI ID" />
         </div>
 
