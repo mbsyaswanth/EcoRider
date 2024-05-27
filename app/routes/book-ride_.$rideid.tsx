@@ -37,7 +37,7 @@ export default function BookRide() {
             <img src="/car-side.svg" alt="car side" />
             <p className="text-base text-grey">White Altroz 3456</p>
           </div>
-          <div className="flex flex-col gap-2 bg-white text-grey p-3 rounded-md">
+          <div className="flex flex-col gap-1 bg-white text-grey p-3 rounded-md">
             <div className="text-sm font-medium">Note from Yaswanth</div>
             <p className="text-base">
               Please select your boarding points and be on time. Lets make it

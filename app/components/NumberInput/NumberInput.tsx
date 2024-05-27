@@ -59,7 +59,6 @@ const NumberInput = ({
           id={id}
           name={name}
           type="number"
-          defaultValue={defaultValue}
           value={currentValue}
           className="flex p-1 text-center rounded shadow-[0_0_0_1px_rgba(0,0,0,0.25)]"
           readOnly
