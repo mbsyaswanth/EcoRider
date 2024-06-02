@@ -171,6 +171,7 @@ const assets = [
   "/minus.svg",
   "/pen.svg",
   "/people-group.svg",
+  "/phone-solid.svg",
   "/phone.svg",
   "/plus.svg",
   "/pwa-192x192.png",
@@ -242,6 +243,18 @@ const routes = {
     hasWorkerAction: false,
     module: route4
   },
+  "routes/my-rides_.$rideid": {
+    id: "routes/my-rides_.$rideid",
+    parentId: "root",
+    path: "my-rides/:rideid",
+    index: void 0,
+    caseSensitive: void 0,
+    hasLoader: false,
+    hasAction: false,
+    hasWorkerLoader: false,
+    hasWorkerAction: false,
+    module: route5
+  },
   "routes/find-rides": {
     id: "routes/find-rides",
     parentId: "root",
@@ -252,24 +265,12 @@ const routes = {
     hasAction: false,
     hasWorkerLoader: false,
     hasWorkerAction: false,
-    module: route5
+    module: route6
   },
   "routes/offer-ride": {
     id: "routes/offer-ride",
     parentId: "root",
     path: "offer-ride",
-    index: void 0,
-    caseSensitive: void 0,
-    hasLoader: false,
-    hasAction: false,
-    hasWorkerLoader: false,
-    hasWorkerAction: false,
-    module: route6
-  },
-  "routes/my-ride": {
-    id: "routes/my-ride",
-    parentId: "root",
-    path: "my-ride",
     index: void 0,
     caseSensitive: void 0,
     hasLoader: false,

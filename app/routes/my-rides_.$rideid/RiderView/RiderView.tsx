@@ -2,7 +2,7 @@ import { Link } from "@remix-run/react";
 import LabelWithValue from "~/components/LabelWithValue";
 import NavHeader from "~/components/NavHeader";
 
-export default function MyRide() {
+const RiderView = () => {
   return (
     <div>
       <NavHeader title="Your ride at 8am" />
@@ -98,4 +98,6 @@ export default function MyRide() {
       </div>
     </div>
   );
-}
+};
+
+export default RiderView;
