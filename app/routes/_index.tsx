@@ -1,11 +1,25 @@
-import type { MetaFunction } from "@remix-run/node";
-import { Link } from "@remix-run/react";
+import type { LoaderFunctionArgs, MetaFunction } from "@remix-run/node";
+import { Link, redirect } from "@remix-run/react";
+import { createSupabaseServerClient } from "~/supabase.server";
 
 export const meta: MetaFunction = () => {
   return [
     { title: "EcoRider | Home" },
     { name: "description", content: "Welcome to Remix!" }
   ];
+};
+
+export const loader = async ({ request }: LoaderFunctionArgs) => {
+  const { supabaseClient } = createSupabaseServerClient(request);
+  const {
+    data: { user }
+  } = await supabaseClient.auth.getUser();
+
+  if (!user) {
+    return redirect("/login");
+  }
+
+  return new Response(null);
 };
 
 const homeMenu = [

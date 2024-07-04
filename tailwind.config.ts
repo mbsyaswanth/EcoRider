@@ -9,7 +9,8 @@ export default {
       almostWhite: "#ECEDE5",
       grey: "#44443D",
       lgrey: "#44443D",
-      vlgrey: "#B4B1AE"
+      vlgrey: "#B4B1AE",
+      blue: "#1A76CC"
     },
     extend: {
       boxShadow: {

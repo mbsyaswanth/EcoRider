@@ -1,5 +1,5 @@
 {
-  "name": "",
+  "name": "eco-rider",
   "private": true,
   "sideEffects": false,
   "type": "module",
@@ -11,11 +11,14 @@
     "typecheck": "tsc"
   },
   "dependencies": {
+    "@lottiefiles/react-lottie-player": "^3.5.4",
     "@remix-pwa/sw": "^3.0.5",
     "@remix-pwa/worker-runtime": "^2.1.1",
     "@remix-run/node": "^2.9.2",
     "@remix-run/react": "^2.9.2",
     "@remix-run/serve": "^2.9.2",
+    "@supabase/ssr": "^0.3.0",
+    "@supabase/supabase-js": "^2.43.4",
     "isbot": "^4.1.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
