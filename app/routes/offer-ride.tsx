@@ -1,23 +1,67 @@
+import { ActionFunctionArgs, json, redirect } from "@remix-run/node";
 import { Form } from "@remix-run/react";
+import { TablesInsert } from "database";
 import Input from "~/components/Input";
+import LocationSearchInput from "~/components/LocationSearchInput";
 import NavHeader from "~/components/NavHeader";
+import { createSupabaseServerClient } from "~/supabase.server";
+
+export async function action({ request }: ActionFunctionArgs) {
+  const { supabaseClient, headers } = createSupabaseServerClient(request);
+
+  const {
+    data: { user }
+  } = await supabaseClient.auth.getUser();
+
+  if (!user) {
+    return redirect("/login");
+  }
+
+  const formData = await request.formData();
+
+  const rideInfo: TablesInsert<"rides"> = {
+    user_id: user.id,
+    source: formData.get("source") as string,
+    destination: formData.get("destination") as string,
+    when: formData.get("when") as string,
+    vehicle_identification: formData.get("vehicle_identification") as string,
+    seats: formData.get("seats") as unknown as number,
+    cost: formData.get("cost") as unknown as number,
+    note: formData.get("note") as string,
+    upi_id: formData.get("upi_id") as string
+  };
+
+  const { error } = await supabaseClient.from("rides").insert(rideInfo);
+
+  if (error) {
+    return json({ success: false, error }, { headers, status: 500 });
+  }
+
+  return redirect("/my-rides/${ride_id}", {
+    headers
+  });
+}
 
 export default function OfferRide() {
   return (
     <div>
       <NavHeader title="Offer Ride" />
 
-      <Form className="flex flex-col">
+      <Form className="flex flex-col" method="post">
         <div className="flex flex-col px-4 *:mb-5 pb-32">
-          <Input
-            id="starting_from"
-            name="starting_from"
+          <LocationSearchInput
+            id="source"
+            name="source"
             label="Starting from"
           />
-          <Input id="going_to" name="going_to" label="Going to" />
+          <LocationSearchInput
+            id="destination"
+            name="destination"
+            label="Going to"
+          />
           <Input
-            id="date_time"
-            name="date_time"
+            id="when"
+            name="when"
             type="datetime-local"
             label="Date and Time"
           />

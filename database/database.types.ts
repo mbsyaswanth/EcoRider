@@ -34,6 +34,62 @@ export type Database = {
   }
   public: {
     Tables: {
+      rides: {
+        Row: {
+          cost: number | null
+          created_at: string
+          delayed_by: string | null
+          destination: Json | null
+          estimated_duration: string | null
+          id: number
+          note: string | null
+          seats: number | null
+          source: Json | null
+          upi_id: string | null
+          user_id: string | null
+          vehicle_identification: string | null
+          when: string | null
+        }
+        Insert: {
+          cost?: number | null
+          created_at?: string
+          delayed_by?: string | null
+          destination?: Json | null
+          estimated_duration?: string | null
+          id?: number
+          note?: string | null
+          seats?: number | null
+          source?: Json | null
+          upi_id?: string | null
+          user_id?: string | null
+          vehicle_identification?: string | null
+          when?: string | null
+        }
+        Update: {
+          cost?: number | null
+          created_at?: string
+          delayed_by?: string | null
+          destination?: Json | null
+          estimated_duration?: string | null
+          id?: number
+          note?: string | null
+          seats?: number | null
+          source?: Json | null
+          upi_id?: string | null
+          user_id?: string | null
+          vehicle_identification?: string | null
+          when?: string | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "public_rides_user_id_fkey"
+            columns: ["user_id"]
+            isOneToOne: false
+            referencedRelation: "users"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
       user_info: {
         Row: {
           company: string
@@ -78,7 +134,7 @@ export type Database = {
           {
             foreignKeyName: "public_user_info_user_id_fkey"
             columns: ["user_id"]
-            isOneToOne: false
+            isOneToOne: true
             referencedRelation: "users"
             referencedColumns: ["id"]
           },
